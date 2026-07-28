@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://cwyutjkmci1jh"]
+
+[ext_resource type="Texture2D" uid="uid://cv275hoxs0ji4" path="res://assets/images/objects/DOOR.png" id="1_id2fp"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="3_els8d"]
+
+[sub_resource type="GDScript" id="GDScript_wdsje"]
+script/source = "extends StaticBody2D
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var interactable_component: Interactable_Component = $InteractableComponent
+
+
+func _ready() -> void:
+	interactable_component.interactable_activated.connect(on_interactable_activated)
+	interactable_component.interactable_deactivated.connect(on_interactable_deactivated)
+	collision_layer = 1 
+	
+func on_interactable_activated() -> void: #interact with door, open it
+	animated_sprite_2d.play(\"open_door\")
+	collision_layer = 2 #same layer as player for player to walk through/interact
+	
+func on_interactable_deactivated() -> void: #interaction \"deactivated\", if you step awayy
+	animated_sprite_2d.play(\"close_door\")
+	collision_layer = 1 #back to 1, this was a temporarily change of collision_layer
+	
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqc5f"]
+atlas = ExtResource("1_id2fp")
+region = Rect2(62, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7g3y"]
+atlas = ExtResource("1_id2fp")
+region = Rect2(31, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu2hh"]
+atlas = ExtResource("1_id2fp")
+region = Rect2(0, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbd34"]
+atlas = ExtResource("1_id2fp")
+region = Rect2(0, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e83to"]
+atlas = ExtResource("1_id2fp")
+region = Rect2(0, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i48t5"]
+atlas = ExtResource("1_id2fp")
+region = Rect2(31, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xymsv"]
+atlas = ExtResource("1_id2fp")
+region = Rect2(62, 0, 31, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ffjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqc5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7g3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu2hh")
+}],
+"loop": false,
+"name": &"close_door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbd34")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e83to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i48t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xymsv")
+}],
+"loop": false,
+"name": &"open_door",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdsje"]
+size = Vector2(120, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gses"]
+size = Vector2(64, 302)
+
+[node name="door" type="StaticBody2D" unique_id=1091609230]
+position = Vector2(8, 7)
+scale = Vector2(0.25, 0.25)
+script = SubResource("GDScript_wdsje")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1640140727]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_6ffjo")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=170707315]
+position = Vector2(1, 8)
+shape = SubResource("RectangleShape2D_wdsje")
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("3_els8d")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=2074323245]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_3gses")
