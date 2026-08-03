@@ -1,9 +1,6 @@
-class_name DialogueManagerExampleBalloon extends CanvasLayer
-## A basic dialogue balloon for use with Dialogue Manager.
+class_name DialogueManagerExampleBalloon extends CanvasLayer ## basic dialogue balloon to use with Dialogue Manager
 
-
-## The dialogue resource
-@export var dialogue_resource: DialogueResource
+@export var dialogue_resource: DialogueResource ## dialogue resource
 
 ## Start from a given title when using balloon as a [Node] in a scene.
 @export var start_from_title: String = ""
@@ -55,20 +52,12 @@ var dialogue_line: DialogueLine:
 ## A cooldown timer for delaying the balloon hide when encountering a mutation.
 var mutation_cooldown: Timer = Timer.new()
 
-## The base balloon anchor
-@onready var balloon: Control = %Balloon
 
-## The label showing the name of the currently speaking character
-@onready var character_label: RichTextLabel = %CharacterLabel
-
-## The label showing the currently spoken dialogue
-@onready var dialogue_label: DialogueLabel = %DialogueLabel
-
-## The menu of responses
-@onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
-
-## Indicator to show that player can progress dialogue.
-@onready var progress: Polygon2D = %Progress
+@onready var balloon: Control = %Balloon ## base balloon anchor
+@onready var character_label: RichTextLabel = %CharacterLabel ## label showing the name of the currently speaking character
+@onready var dialogue_label: DialogueLabel = %DialogueLabel ## label showing the currently spoken dialogue
+@onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu ## menu of responses
+@onready var progress: Polygon2D = %Progress ## indicator to show that player can progress dialogue.
 
 
 func _ready() -> void:

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dw1yssvrng0mn"]
+
+[ext_resource type="PackedScene" uid="uid://73jm5qjy52vq" path="res://addons/dialogue_manager/example_balloon/example_balloon.tscn" id="1_mfu7v"]
+
+[node name="ExampleBalloon" unique_id=1434168376 instance=ExtResource("1_mfu7v")]

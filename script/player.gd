@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-
 var last_direction: Vector2 = Vector2.UP #for idle animation
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D #script has been turned into a variable
 
+var is_dialogue_active: bool = true
 
 func _physics_process(_delta: float) -> void: #main function
+	if is_dialogue_active:
+		return
 	process_movement()
 	process_animation()
 	move_and_slide()

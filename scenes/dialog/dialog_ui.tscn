@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cfqr65obfbwh7"]
+
+[ext_resource type="PackedScene" uid="uid://dw1yssvrng0mn" path="res://scenes/dialog/example_balloon.tscn" id="1_2kmek"]
+[ext_resource type="Script" uid="uid://ctakny3ps6f2" path="res://script/dialog_ui.gd" id="1_bitvv"]
+
+[node name="DialogUI" type="Control" unique_id=1376756981]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bitvv")
+
+[node name="ExampleBalloon" parent="." unique_id=1434168376 instance=ExtResource("1_2kmek")]
+
+[editable path="ExampleBalloon"]
