@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dfi3iunriqdex"]
+
+[ext_resource type="PackedScene" uid="uid://bxyo8im8h1i38" path="res://scenes/components/interactable_label.tscn" id="1_6b2c7"]
+[ext_resource type="Script" uid="uid://b7we7ssr626a7" path="res://script/for_interactions/sink.gd" id="1_jdqhh"]
+[ext_resource type="Texture2D" uid="uid://cmnrq43j5qb82" path="res://assets/images/objects/sink.png" id="2_soybt"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="4_7pvf2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0cb5"]
+atlas = ExtResource("2_soybt")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdqhh"]
+atlas = ExtResource("2_soybt")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soybt"]
+atlas = ExtResource("2_soybt")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pvf2"]
+atlas = ExtResource("2_soybt")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdp45"]
+atlas = ExtResource("2_soybt")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdp45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0cb5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdqhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pvf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdp45")
+}],
+"loop": true,
+"name": &"water",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdqhh"]
+size = Vector2(16, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_soybt"]
+size = Vector2(16, 56)
+
+[node name="sink" type="Area2D" unique_id=1798247661]
+script = ExtResource("1_jdqhh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1859347957]
+sprite_frames = SubResource("SpriteFrames_bdp45")
+animation = &"water"
+autoplay = "default"
+frame_progress = 0.7568572
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503611614]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_jdqhh")
+
+[node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("1_6b2c7")]
+offset_left = -14.0
+offset_top = 24.0
+offset_right = 166.0
+offset_bottom = 67.0
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("4_7pvf2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1882742036]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_soybt")

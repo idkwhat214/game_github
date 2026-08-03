@@ -1,7 +1,9 @@
-~ start 
 
+~ start 
 Unknown: The chirping of birds and occasional honking sounds caused by the traffic outside can be heard through your open window. Golden rays of sunshine illuminate your room. You lazily lie on your bed, feeling the warmth of the sun on your skin accompanied by soft breezes of the wind. Music plays through your headphones as you gaze at the ceiling.
 Unknown: Sunday is your reset day of the week. Perhaps you should really get up instead of procrastinating. With a sigh of defeat, you sit up on your bed and glance at the mess on your desk. Your dear homework is patiently waiting for you. Next to it lies the plant you got for your last birthday with its first wilting leaves. You should probably water it.
+=> END
 
-
+~ continue
+Unknown: You've watered the plant. Hopefully, it'll live a little longer.
 => END

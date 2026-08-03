@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bxyo8im8h1i38"]
+
+[sub_resource type="SystemFont" id="SystemFont_leop4"]
+font_names = PackedStringArray("Bookman Old Style")
+
+[node name="InteractableLabel" type="Label" unique_id=1795672340]
+offset_left = -13.0
+offset_top = 11.0
+offset_right = 167.0
+offset_bottom = 54.0
+scale = Vector2(0.25, 0.25)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_leop4")
+text = "[E] to interact"

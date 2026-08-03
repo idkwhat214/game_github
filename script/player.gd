@@ -1,11 +1,12 @@
 extends CharacterBody2D
+class_name Player
 
 const SPEED = 300.0
 var last_direction: Vector2 = Vector2.UP #for idle animation
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D #script has been turned into a variable
 
-var is_dialogue_active: bool = true
+var is_dialogue_active: bool = true #for blocking player movement in dialog_ui script
 
 func _physics_process(_delta: float) -> void: #main function
 	if is_dialogue_active:
