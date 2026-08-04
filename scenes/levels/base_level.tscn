@@ -39,7 +39,10 @@
 [ext_resource type="Texture2D" uid="uid://bu4wa4v2k3g0j" path="res://assets/images/tileset/posters.png" id="28_ii06k"]
 [ext_resource type="Texture2D" uid="uid://bcwf8urnjpmwg" path="res://assets/images/tileset/poster.png" id="29_ii06k"]
 [ext_resource type="Texture2D" uid="uid://yg53maewine3" path="res://assets/images/tileset/painting.png" id="30_pseyb"]
+[ext_resource type="PackedScene" uid="uid://cwpfw2hmxhfhj" path="res://scenes/interactable_objects/note.tscn" id="30_wsjnl"]
+[ext_resource type="PackedScene" uid="uid://0phrv10abihy" path="res://scenes/interactable_objects/hmw.tscn" id="32_p5hfi"]
 [ext_resource type="Texture2D" uid="uid://bxu3wc0icqcwk" path="res://assets/images/tileset/lamp.png" id="32_u2nyb"]
+[ext_resource type="PackedScene" uid="uid://cq2feppwvl2m0" path="res://scenes/interactable_objects/diary.tscn" id="34_30kvp"]
 
 [sub_resource type="GDScript" id="GDScript_u2nyb"]
 script/source = "extends Node2D
@@ -407,11 +410,15 @@ texture = ExtResource("26_0hr52")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_p5hfi"]
 scenes/1/scene = ExtResource("28_cnqkx")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wqfp5"]
+scenes/1/scene = ExtResource("30_wsjnl")
+
 [sub_resource type="TileSet" id="TileSet_u2nyb"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0hr52")
 sources/1 = SubResource("TileSetAtlasSource_wsjnl")
 sources/2 = SubResource("TileSetScenesCollectionSource_p5hfi")
+sources/3 = SubResource("TileSetScenesCollectionSource_wqfp5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkgjl"]
 texture = ExtResource("21_nq73e")
@@ -432,6 +439,14 @@ texture = ExtResource("22_64olr")
 1:1/0 = 0
 2:0/0 = 0
 2:1/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_30kvp"]
+resource_name = "homework"
+scenes/1/scene = ExtResource("32_p5hfi")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mgxot"]
+resource_name = "diary"
+scenes/1/scene = ExtResource("34_30kvp")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnqkx"]
 texture = ExtResource("28_ii06k")
@@ -466,6 +481,8 @@ sources/6 = SubResource("TileSetAtlasSource_cnqkx")
 sources/7 = SubResource("TileSetAtlasSource_ktxvk")
 sources/8 = SubResource("TileSetAtlasSource_p5hfi")
 sources/9 = SubResource("TileSetAtlasSource_30kvp")
+sources/2 = SubResource("TileSetScenesCollectionSource_30kvp")
+sources/3 = SubResource("TileSetScenesCollectionSource_mgxot")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhwlw"]
 texture = ExtResource("5_3rriw")
@@ -522,13 +539,13 @@ tile_set = SubResource("TileSet_j8xgc")
 
 [node name="TileMapLayer_stuff" type="TileMapLayer" parent="." unique_id=1983657600]
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAAQAAsAAAAAAAAAAAAQAAwAAAAAAAEAAAARAAsAAAABAAAAAAARAAwAAAABAAEAAAASAAsAAQAAAAAAAAASAAwAAQAAAAEAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAEAAAAXAAIAAgAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAQAAsAAAAAAAAAAAAQAAwAAAAAAAEAAAARAAsAAAABAAAAAAARAAwAAAABAAEAAAASAAsAAQAAAAAAAAASAAwAAQAAAAEAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAEAAAAXAAIAAgAAAAAAAQARAAIAAwAAAAAAAQA=")
 tile_set = SubResource("TileSet_u2nyb")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1311117406]
 position = Vector2(1, 0)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAFABEAAAAAAAAAAAAFABIAAAAAAAEAAAAGABEAAAABAAAAAAAGABIAAAABAAEAAAAHABEAAAACAAAAAAAHABIAAAACAAEAAAAIABEAAAADAAAAAAAIABIAAAADAAEAAAAhAAQAAQAAAAAAAAAhAAUAAQAAAAEAAAAjAAQAAQACAAAAAAAjAAUAAQACAAEAAAAiAAUAAQABAAEAAAAiAAQAAQABAAAAAAAdAAEABgABAAAAAAAdAAIABgABAAEAAAAcAAEABgAAAAAAAAAcAAIABgAAAAEAAAAeAAEABwAAAAAAAAAeAAIABwAAAAEAAAAUAA4ACAAAAAAAAAAUAA8ACAAAAAEAAAAUABAACAAAAAIAAAAVAA4ACAABAAAAAAAVAA8ACAABAAEAAAAVABAACAABAAIAAAAbAAMACQAAAAAAAAAbAAQACQAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAAFABEAAAAAAAAAAAAFABIAAAAAAAEAAAAGABEAAAABAAAAAAAGABIAAAABAAEAAAAHABEAAAACAAAAAAAHABIAAAACAAEAAAAIABEAAAADAAAAAAAIABIAAAADAAEAAAAhAAQAAQAAAAAAAAAhAAUAAQAAAAEAAAAjAAQAAQACAAAAAAAjAAUAAQACAAEAAAAiAAUAAQABAAEAAAAiAAQAAQABAAAAAAAdAAEABgABAAAAAAAdAAIABgABAAEAAAAcAAEABgAAAAAAAAAcAAIABgAAAAEAAAAeAAEABwAAAAAAAAAeAAIABwAAAAEAAAAUAA4ACAAAAAAAAAAUAA8ACAAAAAEAAAAUABAACAAAAAIAAAAVAA4ACAABAAAAAAAVAA8ACAABAAEAAAAVABAACAABAAIAAAAbAAMACQAAAAAAAAAbAAQACQAAAAEAAAAdAAQAAgAAAAAAAQAkAAQAAwAAAAAAAQA=")
 tile_set = SubResource("TileSet_jua6e")
 
 [node name="TileMapLayer_walls" type="TileMapLayer" parent="." unique_id=469136603]

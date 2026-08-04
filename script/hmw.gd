@@ -15,11 +15,9 @@ func on_interactable_activated() -> void:
 
 func _process(_delta):
 	if interactable_label.visible and Input.is_action_just_pressed("interact"): #if E is pressed in the interactable area
-		animated_sprite_2d.play("water") #this animation plays
-		QuestManager.plant_interaction() #and quest_state changes to 1
+		animated_sprite_2d.play("do") #this animation plays
+		QuestManager.hmw_interaction() #and quest_state changes to 2
 	
 func on_interactable_deactivated() -> void:
 	interactable_label.hide()
 	animated_sprite_2d.play("default")
-	
-	

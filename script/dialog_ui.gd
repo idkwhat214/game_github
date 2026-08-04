@@ -5,6 +5,8 @@ extends Control
 @onready var responses_menu: DialogueResponsesMenu = $ExampleBalloon/Balloon/ResponsesMenu
 
 var player: CharacterBody2D
+var res: DialogueResource
+const DIALOGUE := "res://dialogue/main.dialogue"
 
 func _ready() -> void: #the function Godot uses when node enters scene tree, initialization
 	balloon.visible = false #start scene with balloon hidden; makes dialogue box only appear when dialogue begins
@@ -19,10 +21,11 @@ func _ready() -> void: #the function Godot uses when node enters scene tree, ini
 		dm.dialogue_started.connect(Callable(self, "_on_dialogue_started")) #connects the signal dialogue_started from dm script to a function
 		dm.dialogue_ended.connect(Callable(self, "_on_dialogue_ended"))
 		responses_menu.response_selected.connect(Callable(self, "_on_response_selected"))
-	
-	var res = load("res://dialogue/main.dialogue") #load the file with the dialogue
-	if res:
-		dm.show_dialogue_balloon(res) #show balloon with dialogue
+		QuestManager.quest_state_changed.connect(Callable(self, "_on_quest_state_changed")) #check quest_manager script
+		
+	res = load(DIALOGUE) #load the file with dialogue
+	if res: #if loaded
+		dm.show_dialogue_balloon(res) #show balloon with dialogue lines 3&4
 	
 func _on_response_selected(response: DialogueResponse) -> void: #when a response is selected
 	pass #placeholder, does nothing for now
@@ -34,5 +37,18 @@ func _on_dialogue_started(resource: DialogueResource) -> void:
 func _on_dialogue_ended(resource: DialogueResource) -> void:
 	if is_instance_valid(player): 
 		player.is_dialogue_active = false
+	
+func show_dialogue_title(title: String) -> void:
+	res = load(DIALOGUE) #get dialogue
+	var dm = Engine.get_singleton("DialogueManager") #get dialogueManager
+	if res and dm: #if both exist
+		dm.show_dialogue_balloon(res, title) #show wanted lines with title
+		
+func _on_quest_state_changed(new_state: int) -> void:
+	if new_state == 1:
+		show_dialogue_title("continue")
+	if new_state == 2:
+		show_dialogue_title("continue2")
+	
 		
 		

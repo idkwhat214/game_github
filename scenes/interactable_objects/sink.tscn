@@ -48,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bdp45")
 }],
-"loop": true,
+"loop": false,
 "name": &"water",
 "speed": 5.0
 }]

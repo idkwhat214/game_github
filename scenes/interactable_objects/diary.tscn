@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://cq2feppwvl2m0"]
+
+[ext_resource type="Script" uid="uid://i3tbsgxrglwm" path="res://script/for_interactions/diary.gd" id="1_0gvqu"]
+[ext_resource type="Texture2D" uid="uid://bs702f8dry27q" path="res://assets/images/objects/diary.png" id="1_h1gap"]
+[ext_resource type="PackedScene" uid="uid://bxyo8im8h1i38" path="res://scenes/components/interactable_label.tscn" id="3_upe1a"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="4_g0kq7"]
+[ext_resource type="PackedScene" uid="uid://cwd0qylxhs4kd" path="res://scenes/components/close_label.tscn" id="5_muj0j"]
+[ext_resource type="PackedScene" uid="uid://cad11o6fnnapl" path="res://scenes/components/continue_label.tscn" id="5_upe1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_begyx"]
+size = Vector2(20, 59)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gvqu"]
+bg_color = Color(0.31184956, 0.31184962, 0.31184947, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="SystemFont" id="SystemFont_0gvqu"]
+font_names = PackedStringArray("Script MT")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_g0kq7"]
+font_names = PackedStringArray("Script MT")
+
+[sub_resource type="SystemFont" id="SystemFont_muj0j"]
+font_names = PackedStringArray("Bookman Old Style")
+
+[node name="diary" type="Area2D" unique_id=1689389745]
+script = ExtResource("1_0gvqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=813984241]
+position = Vector2(-2, -8)
+texture = ExtResource("1_h1gap")
+
+[node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("3_upe1a")]
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 160.0
+offset_bottom = 18.0
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("4_g0kq7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=494814429]
+position = Vector2(0, 19.5)
+shape = SubResource("RectangleShape2D_begyx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1254867699]
+offset = Vector2(120, 75)
+transform = Transform2D(1, 0, 0, 1, 120, 75)
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=189076865]
+anchors_preset = -1
+anchor_right = 0.68671876
+anchor_bottom = 0.59444445
+offset_right = 165.0
+offset_bottom = 105.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0gvqu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Page1" type="Label" parent="CanvasLayer" unique_id=30922960]
+anchors_preset = -1
+anchor_left = -0.00234375
+anchor_right = 0.66875
+anchor_bottom = 0.57916665
+offset_left = 16.0
+offset_top = 1.0
+offset_right = 178.0
+offset_bottom = 190.0
+theme_override_fonts/font = SubResource("SystemFont_0gvqu")
+theme_override_font_sizes/font_size = 20
+text = "03.04.28
+Dear Diary, I had an economics test today. Didn’t go well. At some point, I just stared out of the window. I envy the birds. They get to fly wherever they want to while I’m stuck here. 
+You know what? Enough complaining. There’s so much more than grades out there. There are worse problems to deal with.
+
+21.07.28
+I went for a run to clear my head. I love running. Mom made me waffles topped with strawberries when I got back.
+
+15.08.28
+I heard dad talking to mom earlier, saying some number: 232548
+My dad doesn’t talk much, but I know he cares a lot about us. He used to serve time in the military. As much as I’m proud of him for wanting to protect the country, protect us, I wish he didn’t have to fight like that. I don’t know. War traps innocent people in the crossfire. When he came back, he was injured badly, but alive. That’s all mom and I were focused on. I know he lost many comrades, which is probably one of the reasons why he’s so closed off. 
+
+24.08.28
+Something about the night sky is just peaceful. I love stargazing. Seeing all the stars reminds me of how there are countless potential endings for a story.
+
+
+"
+autowrap_mode = 2
+
+[node name="Page2" type="Label" parent="CanvasLayer" unique_id=253510597]
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 1037.0
+offset_bottom = 532.0
+theme_override_fonts/font = SubResource("SystemFont_g0kq7")
+theme_override_font_sizes/font_size = 20
+text = "15.11.28
+I wish my eyes could film, you know? Like take pictures. Some memories are really precious, and I don’t want to forget them. Nostalgia is such a weird feeling. 
+
+29.12.28
+Dear Diary, I finished this show called “Attack on Titan”. It’s a masterpiece. At first, I thought it would be all about titans (giant human-like creatures) vs humans, but there’s so much more to it. It’s a perfect blend of war, peace, genocide, love, freedom and morality. I can’t explain it, ugh. It’s just mind-blowing.
+
+07.02.28
+My dear diary, I love tea, especially when it’s raining outside and I’ve got a book to read right in front of me. I don’t understand how it’s possible for anyone hate the rain. Why is it even labelled as “bad weather”?
+
+21.07.2029
+Dear diary, my parents are going out for their wedding anniversary tomorrow. I’m glad they get to spend time together after everything. They deserve it. And in the meantime, I will be very productive: do my homework and some household chores, like clean the floor. Dad always keeps his space tidy, leaving no room for any messes. 
+"
+autowrap_mode = 2
+
+[node name="ContinueLabel" parent="CanvasLayer" unique_id=538478516 instance=ExtResource("5_upe1a")]
+offset_left = 880.0
+offset_top = 503.0
+offset_right = 1028.0
+offset_bottom = 526.0
+theme_override_fonts/font = SubResource("SystemFont_muj0j")
+text = "[space] to continue"
+
+[node name="CloseLabel" parent="CanvasLayer" unique_id=801254800 instance=ExtResource("5_muj0j")]
+offset_left = 924.0
+offset_top = 6.0
+offset_right = 1032.0
+offset_bottom = 30.0

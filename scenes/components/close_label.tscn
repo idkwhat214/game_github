@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cwd0qylxhs4kd"]
+
+[sub_resource type="SystemFont" id="SystemFont_rwmcf"]
+font_names = PackedStringArray("Bookman Old Style")
+
+[node name="CloseLabel" type="Label" unique_id=801254800]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_rwmcf")
+theme_override_font_sizes/font_size = 20
+text = "[Q] to close"

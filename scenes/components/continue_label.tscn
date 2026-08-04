@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cad11o6fnnapl"]
+
+[node name="ContinueLabel" type="Label" unique_id=538478516]
+offset_right = 40.0
+offset_bottom = 23.0

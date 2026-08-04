@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cwpfw2hmxhfhj"]
+
+[ext_resource type="Script" uid="uid://crj1ojxtbeuwy" path="res://script/for_interactions/note.gd" id="1_4735f"]
+[ext_resource type="Texture2D" uid="uid://cc4vrq0c1hf8e" path="res://assets/images/objects/note.png" id="2_7ffyf"]
+[ext_resource type="PackedScene" uid="uid://bxyo8im8h1i38" path="res://scenes/components/interactable_label.tscn" id="3_3ultp"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="4_shpiv"]
+[ext_resource type="PackedScene" uid="uid://cwd0qylxhs4kd" path="res://scenes/components/close_label.tscn" id="5_7ffyf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4735f"]
+size = Vector2(27, 51)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ultp"]
+bg_color = Color(0.6187715, 0.34080884, 0.46082807, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="SystemFont" id="SystemFont_shpiv"]
+font_names = PackedStringArray("Bookman Old Style")
+subpixel_positioning = 0
+
+[node name="note" type="Area2D" unique_id=2002910583]
+script = ExtResource("1_4735f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=338212285]
+texture = ExtResource("2_7ffyf")
+
+[node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("3_3ultp")]
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("4_shpiv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=2069827767]
+position = Vector2(0.5, 24.5)
+shape = SubResource("RectangleShape2D_4735f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1197838976]
+offset = Vector2(400, 64)
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 400, 64)
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1284772795]
+offset_left = -21.0
+offset_top = -6.0
+offset_right = 121.0
+offset_bottom = 39.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ultp")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=144487624]
+offset_left = -18.0
+offset_top = -6.0
+offset_right = 270.0
+offset_bottom = 94.0
+scale = Vector2(0.5, 0.5)
+text = "Dad and I will be back tomorrow. Lunch is in the fridge. And the piece of tiramisu is for you, xoxo."
+autowrap_mode = 2
+
+[node name="CloseLabel" parent="CanvasLayer" unique_id=801254800 instance=ExtResource("5_7ffyf")]
+offset_left = 83.0
+offset_top = 29.0
+offset_right = 170.0
+offset_bottom = 49.0
+scale = Vector2(0.4, 0.4)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_shpiv")
+text = "[Q] to close"

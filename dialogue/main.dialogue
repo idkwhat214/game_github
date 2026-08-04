@@ -1,3 +1,4 @@
+using GameState
 
 ~ start 
 Unknown: The chirping of birds and occasional honking sounds caused by the traffic outside can be heard through your open window. Golden rays of sunshine illuminate your room. You lazily lie on your bed, feeling the warmth of the sun on your skin accompanied by soft breezes of the wind. Music plays through your headphones as you gaze at the ceiling.
@@ -5,5 +6,20 @@ Unknown: Sunday is your reset day of the week. Perhaps you should really get up 
 => END
 
 ~ continue
-Unknown: You've watered the plant. Hopefully, it'll live a little longer.
+Unknown: You've watered the plant. Hopefully, it will live a little longer. It would be wise to give your homework some attention now. 
 => END
+
+~ continue2
+Unknown: Here are two statements about P(1/-2) and Q(7/6): 
+	(i)The length of PQ is 10 units. 
+	(ii)The gradient of PQ is 3/4.
+- A) Neither statement is true.
+- B) Only statement (i) is true.
+	set math_skill += 1
+- C) Only statement (ii) is true.
+- D) Both statements are true.
+=> END
+
+
+
+

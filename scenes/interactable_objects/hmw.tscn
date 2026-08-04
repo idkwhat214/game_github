@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://0phrv10abihy"]
+
+[ext_resource type="Script" uid="uid://3r50f6f55371" path="res://script/hmw.gd" id="1_w6ejt"]
+[ext_resource type="Texture2D" uid="uid://bhtm5jh570h8p" path="res://assets/images/objects/hmw.png" id="2_5mqg8"]
+[ext_resource type="PackedScene" uid="uid://bxyo8im8h1i38" path="res://scenes/components/interactable_label.tscn" id="3_o6mje"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="4_5mb1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dntcv"]
+atlas = ExtResource("2_5mqg8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6ejt"]
+atlas = ExtResource("2_5mqg8")
+region = Rect2(1, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mqg8"]
+atlas = ExtResource("2_5mqg8")
+region = Rect2(16, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0i06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dntcv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6ejt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mqg8")
+}],
+"loop": false,
+"name": &"do",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngdqb"]
+size = Vector2(6, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol4xh"]
+size = Vector2(18, 36)
+
+[node name="hmw" type="Area2D" unique_id=141540832]
+script = ExtResource("1_w6ejt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=955636073]
+position = Vector2(0, -5)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_g0i06")
+animation = &"do"
+autoplay = "default"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1424277575]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_ngdqb")
+
+[node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("3_o6mje")]
+offset_top = 0.0
+offset_right = 94.0
+offset_bottom = 24.0
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("4_5mb1f")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1129309276]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_ol4xh")
