@@ -23,9 +23,11 @@ subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_g0kq7"]
 font_names = PackedStringArray("Script MT")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_muj0j"]
 font_names = PackedStringArray("Bookman Old Style")
+subpixel_positioning = 0
 
 [node name="diary" type="Area2D" unique_id=1689389745]
 script = ExtResource("1_0gvqu")
@@ -103,7 +105,7 @@ I wish my eyes could film, you know? Like take pictures. Some memories are reall
 Dear Diary, I finished this show called “Attack on Titan”. It’s a masterpiece. At first, I thought it would be all about titans (giant human-like creatures) vs humans, but there’s so much more to it. It’s a perfect blend of war, peace, genocide, love, freedom and morality. I can’t explain it, ugh. It’s just mind-blowing.
 
 07.02.28
-My dear diary, I love tea, especially when it’s raining outside and I’ve got a book to read right in front of me. I don’t understand how it’s possible for anyone hate the rain. Why is it even labelled as “bad weather”?
+My dear diary, I love tea, especially when it’s raining outside and I’ve got a book to read right in front of me. I don’t understand how it’s possible for anyone to hate the rain. Why is it even labelled as “bad weather”?
 
 21.07.2029
 Dear diary, my parents are going out for their wedding anniversary tomorrow. I’m glad they get to spend time together after everything. They deserve it. And in the meantime, I will be very productive: do my homework and some household chores, like clean the floor. Dad always keeps his space tidy, leaving no room for any messes. 

@@ -18,6 +18,13 @@ Unknown: Here are two statements about P(1/-2) and Q(7/6):
 	set math_skill += 1
 - C) Only statement (ii) is true.
 - D) Both statements are true.
+[wait=3]
+
+Unknown: Loud banging on the front door startles you. Who could it be at this time? Have your parents decided to get back already? Why wouldn’t they use their own keys? Before more questions could flood your mind, screams erupt outside, followed by a violent yell for help. Hesitation lingers in the back of your mind. After taking a deep breath, you decide against your gut feeling to ignore them. Whoever is on the other side may be in serious trouble and needs your help. 
+do GameState.teleport_player(Vector2(100,600))
+Unknown: You look through the peephole, only to recognize the person standing on the other side. It’s your neighbour, Mr. Jenkins. You insert the key into the keyhole, twisting it to unlock the door. The doorhandle gets yanked downwards and he barges into your apartment, totally out of breath. He slams the door shut behind him, leaning heavily against it. To describe his appearance as disheveled would be an understatement.
+do GameState.teleport_player(Vector2(200,600))
+#do GameState.teleport_neighbor(Vector2(100,600))
 => END
 
 
