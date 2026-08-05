@@ -24,7 +24,116 @@ Unknown: Loud banging on the front door startles you. Who could it be at this ti
 do GameState.teleport_player(Vector2(100,600))
 Unknown: You look through the peephole, only to recognize the person standing on the other side. It’s your neighbour, Mr. Jenkins. You insert the key into the keyhole, twisting it to unlock the door. The doorhandle gets yanked downwards and he barges into your apartment, totally out of breath. He slams the door shut behind him, leaning heavily against it. To describe his appearance as disheveled would be an understatement.
 do GameState.teleport_player(Vector2(200,600))
-#do GameState.teleport_neighbor(Vector2(100,600))
+do GameState.teleport_neighbor(Vector2(100,600))
+=> END
+
+~ continue3
+Unknown: Do you question him?
+- You: "Are you... okay?"
+	Unknown: The man shoots a glare in your direction. 
+	Mr. Jenkins [roughly]: “Do I look okay, kid? No, everyone out there has gone batshit crazy.”
+- [Silence.]
+	Unknown: He appreciates your silence, letting him catch his breath instead of immediately pestering him with questions. 
+	set silence += 1
+	
+Unknown: He looks around, scanning his surroundings.
+Mr. Jenkins: “You alone here?”
+Unknown: You intend to answer truthfully, but then your eyes suddenly catch the red liquid staining his sleeve. Is that… blood?
+- You: “I think you’re bleeding, Mr. Jenkins.”
+	Unknown: Mr. Jenkins looks down at his sleeve. The faint mark of a bite peeks out from his sleeve.
+	Mr. Jenkins [dismissively]: “It’s nothing.”
+- You: “What happened?”
+	Mr. Jenkins [lets out a sigh]: “It’s complicated. I can’t even explain it to myself. I was returning home from a work meeting. All of a sudden, this old hag with the crane just lounged at me. Can you believe it? Her eyes were bloodshot. They were not human. I made a run for the stairs, and she followed me like she was some athlete.”
+	
+You: “I think it’s best if you went back to your apartment…” 
+Mr. Jenkins [cuts you off]: “You want me to go back out there, kid? Not a chance in hell.” 
+Unknown: None of this feels right. He seems stubborn. 
+
+[wait=3]
+
+- You: “Would you like to have something to drink?”
+	Mr. Jenkins [acknowledging your hospitality]: “Mind fetching me a glass of water? I feel rather thirsty from all that running around.”
+	You [politely]: “Sure.”
+	do GameState.teleport_neighbor(Vector2(1000, 850))  
+	=> END
+	
+	~ continue3a
+	do GameState:teleport_player(Vector2(900, 850))
+	Unknown: When you hand him the glass, he thanks you and takes a sip before he starts talking. 
+	Mr. Jenkins: “You know, I know your parents very well. Nice folk. Your father served a long time in the military, didn’t he?” 
+	- [Nod.]
+		set silence += 1
+	- You: “Yeah, he did.”
+		Mr. Jenkins: “I know. Heard all about his reputation.”
+	if silence == 2: 
+		Mr. Jenkins: “Not much of a talker, are you? Your father’s an intimidating man. Doesn’t talk much just like you, but his glare says it all.”
+	else:
+		Mr. Jenkins: “We should be proud of them. Serving for the country is a great deed. It’s a shame he ended up in a wheelchair.”
+	
+	[wait=3]
+	
+	You [concerned]: “You’re starting to look a bit pale, Mr. Jenkins. Are you feeling alright?” 	
+	Unknown: He croaks out a “yeah” and mumbles something. 
+	You: “I can’t hear you.”
+	Unknown: He clears his throat. 
+	You [struggling to find the right words]: “Your eyes… they look…”
+	
+	[wait=3]
+	do GameState.teleport_neighbor(Vector2(950, 850)) 
+	Unknown: Suddenly, his hands reach out to grab you by the throat. Startled and confused, you claw at his hands to no avail, trying to get them off your throat.
+	- [Grab a vase.]
+		Unknown: You use the vase to whack him on the side of his head with great force and he loses consciousness. The realization of what you’ve done hits you hard as you stare at his limp body on the couch. His head is bleeding and broken pieces of the vase can be found on the floor.
+	- [Do nothing.]
+		Unknown: You died. Mr. Jenkins went feral and tore skin off your neck, causing you to bleed out.
+		do GameState.die()
+
+- You: “This isn’t your place. I want you to leave.”
+	do GameState.neighbor_branch_ready()
+	Unknown: Your bluntness is annoying to him. 
+	Mr. Jenkins [curses out]: “Stubborn brat. Which part of no don’t you understand?”
+	do GameState.teleport_neighbor(Vector2(950, 850))
+	
+	[wait=3]
+	do GameState:teleport_player(Vector2(900, 850))
+	- You: “I’ll call the police.”
+		Unknown: He lets out an annoyed huff at your audacity. You unlock your phone, ignoring countless messages sent by your friends. Your hand hovers over the display showing the three-digit-number.  
+		Mr. Jenkins [informs you]: “Go ahead. No one’s gonna respond to you.” 
+		You [mutter incredulously]: “What?”
+		Mr. Jenkins: “You heard me. I dialed the fucking police on my way. No one picked up. I’m telling you it’s a total shitshow.” 
+		Unknown: He watches you put your phone back into your pocket.
+		set useless_phone += 1
+	- You: “Which part of leave don’t you understand?”
+		Mr. Jenkins [annoyed]: “You’ve got quite the mouth on you. Kids these days. Back in my days, it was normal to show some respect to elders. Guess it’s no surprise that you’re like this. Why would I expect basic manners from the military guy’s kid?”
+	
+	Unknown: He takes a step further into the apartment only to stagger at the next, immediately placing a hand on the wall to steady himself. 
+	You [ask upon noticing his stance]: “What’s wrong?” 
+	Mr. Jenkins [takes a moment to respond]: “I… feel sick…”
+	
+	if useless_phone == 1:
+		You: “What do you need?”
+		Mr. Jenkins: “A moment to breathe.”
+	else:
+		You: “I can call an ambulance…”
+		Unknown: He declines your offer quickly, waving a shaky hand at you.
+		Mr. Jenkins: “Hospital bills would drive me up the wall. This is probably nothing.”
+
+	Unknown: You observe him for the next few minutes, and your eyes widen when he collapses on the floor. Naturally, you rush to his side and crouch down. 
+	You [exclaim out of shock]: “Mr. Jenkins!” 
+	Unknown: You try to shake him awake. His pulse is there, but erratic. You stand back up with a hand on your head.
+
+Unknown: When you take out your phone, your eyes land on the messages. You grab the TV remote from the coffee table to turn on the TV and watch the latest news.
+=> END
+
+~ continue4
+A news reporter [breaking the silence as you increase the volume]: “Attention, all citizens! This is an emergency broadcast. A highly infectious disease is spreading rapidly all over the nation. Avoid coming in contact with any infected. According to scientists, typical symptoms-”
+Her voice gets cut off as you watch the camera get splattered with blood and hear violent screams in the background. The image breaks, displaying various colours and a “no signal” text. Low buzzing sound fills the room as you stare at the glitching TV, frozen in shock. You don’t get further time to ponder over the situation when you hear a faint growl. Turning to look for the source of the noise, your gaze falls upon Mr. Jenkins, staring right back at you.
+- [Lock him up.]
+	Unknown: You drag his body across the floor to the small laundry room and lock him up.
+	set pacifist += 1
+- [Kill him.]
+- [Push him off the balcony.]
+
+
 => END
 
 

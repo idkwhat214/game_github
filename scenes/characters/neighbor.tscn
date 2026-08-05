@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://7f8g8b5xwjf2"]
+
+[ext_resource type="Texture2D" uid="uid://bns3q382vj4sg" path="res://assets/images/characters/neighbor.png" id="1_pwujn"]
+[ext_resource type="Script" uid="uid://bg4fkrm8dbo21" path="res://script/npc/neighbor.gd" id="1_wnyco"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="3_ojlsf"]
+[ext_resource type="PackedScene" uid="uid://bxyo8im8h1i38" path="res://scenes/components/interactable_label.tscn" id="4_q8q25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnyco"]
+size = Vector2(14.25, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0tvb"]
+size = Vector2(37, 33.75)
+
+[node name="neighbor" type="CharacterBody2D" unique_id=2102184738]
+scale = Vector2(4, 4)
+script = ExtResource("1_wnyco")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1690550421]
+texture = ExtResource("1_pwujn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1769649446]
+position = Vector2(-0.125, 1.5)
+shape = SubResource("RectangleShape2D_wnyco")
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("3_ojlsf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=81049688]
+position = Vector2(0, 1.125)
+shape = SubResource("RectangleShape2D_t0tvb")
+
+[node name="InteractableLabel" parent="InteractableComponent" unique_id=1795672340 instance=ExtResource("4_q8q25")]
+metadata/_edit_use_anchors_ = true

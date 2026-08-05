@@ -72,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fjrip")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 1.0
 }, {
@@ -154,6 +154,9 @@ script = ExtResource("1_dqkch")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=406484139]
 sprite_frames = SubResource("SpriteFrames_3v2ag")
 animation = &"idle_down"
+autoplay = "idle_up"
+frame = 1
+frame_progress = 0.33885387
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1697392224]
 limit_left = 0

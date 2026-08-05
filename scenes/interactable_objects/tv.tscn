@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cqpocnny1jsnd"]
+
+[ext_resource type="Script" uid="uid://c7w1srocqkf7m" path="res://script/for_interactions/tv.gd" id="1_7ac7v"]
+[ext_resource type="Texture2D" uid="uid://cfu3p2jxmfj2a" path="res://assets/images/objects/tv.png" id="1_crmma"]
+[ext_resource type="PackedScene" uid="uid://bxyo8im8h1i38" path="res://scenes/components/interactable_label.tscn" id="2_7ac7v"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="3_jiqep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crn53"]
+atlas = ExtResource("1_crmma")
+region = Rect2(1, 0, 27, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ucxk"]
+atlas = ExtResource("1_crmma")
+region = Rect2(1, 0, 27, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sbp1"]
+atlas = ExtResource("1_crmma")
+region = Rect2(28, 0, 27, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w2g3"]
+atlas = ExtResource("1_crmma")
+region = Rect2(55, 0, 27, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_888km"]
+atlas = ExtResource("1_crmma")
+region = Rect2(82, 0, 27, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5tbi"]
+atlas = ExtResource("1_crmma")
+region = Rect2(109, 0, 27, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5w336"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crn53")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ucxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sbp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w2g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_888km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5tbi")
+}],
+"loop": false,
+"name": &"news",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jiqep"]
+size = Vector2(26, 29)
+
+[node name="tv" type="Area2D" unique_id=515992448]
+position = Vector2(9, 10)
+script = ExtResource("1_7ac7v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=337875527]
+sprite_frames = SubResource("SpriteFrames_5w336")
+animation = &"news"
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("2_7ac7v")]
+offset_left = -14.0
+offset_top = 13.0
+offset_right = 166.0
+offset_bottom = 56.0
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("3_jiqep")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1843487413]
+position = Vector2(0, 21.5)
+shape = SubResource("RectangleShape2D_jiqep")

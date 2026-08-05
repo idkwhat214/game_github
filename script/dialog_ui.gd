@@ -49,6 +49,12 @@ func _on_quest_state_changed(new_state: int) -> void:
 		show_dialogue_title("continue")
 	if new_state == 2:
 		show_dialogue_title("continue2")
+	if new_state == 3:
+		show_dialogue_title("continue3")
+	if new_state == 3.1:
+		show_dialogue_title("continue3a")
+	if new_state == 4:
+		show_dialogue_title("continue4")
 	
 		
 		

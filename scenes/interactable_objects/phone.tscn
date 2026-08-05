@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://danly3ua5354r"]
+
+[ext_resource type="Script" uid="uid://csbc5dx84rfup" path="res://script/for_interactions/phone.gd" id="1_ar4om"]
+[ext_resource type="Texture2D" uid="uid://bb5wg7iekcwnv" path="res://assets/images/objects/phone.png" id="1_eb10j"]
+[ext_resource type="PackedScene" uid="uid://bxyo8im8h1i38" path="res://scenes/components/interactable_label.tscn" id="2_ar4om"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="3_i6eub"]
+[ext_resource type="PackedScene" uid="uid://cwd0qylxhs4kd" path="res://scenes/components/close_label.tscn" id="5_i6eub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb10j"]
+size = Vector2(28.5, 32.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swgfb"]
+bg_color = Color(0.38597754, 0.6532093, 0.66350126, 1)
+border_width_left = 12
+border_width_top = 20
+border_width_right = 12
+border_width_bottom = 40
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6eub"]
+bg_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.15727392, 0.15727395, 0.15727395, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="phone" type="Area2D" unique_id=737869193]
+script = ExtResource("1_ar4om")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085355695]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_eb10j")
+
+[node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("2_ar4om")]
+offset_left = -12.0
+offset_top = 7.0
+offset_right = 95.0
+offset_bottom = 39.0
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("3_i6eub")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=955598256]
+position = Vector2(1, 8)
+shape = SubResource("RectangleShape2D_eb10j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1018315364]
+offset = Vector2(175, 75)
+transform = Transform2D(1, 0, 0, 1, 175, 75)
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=211300666]
+offset_right = 392.0
+offset_bottom = 553.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_swgfb")
+
+[node name="CloseLabel" parent="CanvasLayer" unique_id=801254800 instance=ExtResource("5_i6eub")]
+offset_left = 263.0
+offset_top = 482.0
+offset_right = 371.0
+offset_bottom = 506.0
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=194374722]
+offset_left = 18.0
+offset_top = 24.0
+offset_right = 387.0
+offset_bottom = 564.0
+theme_override_font_sizes/font_size = 12
+text = "EMERGENCY ALERT: All citizens alert. A contagious disease is spreading. Seek shelter immediately. 	
+
+‘Dad’: STAY at home, Evie. Don’t open the door for anyone. Your mom and I will find a way to get back to you. 
+
+‘Mom’: Sweetheart, your dad and I will be stuck here for a while. Don’t worry, okay? Everything’s going to be alright. Stay safe and take care of yourself. You can do that, right, honey?
+
+‘Kaitlyn’: EVIE, EVIE! WHERE U AT? HAVE YOU SEEN THE NEWS? There’s something fricking weird going on outside… those CREATURES… Shit, they’re right outside my house. SHIT SHITTTT. THE HELL should I do??
+
+‘Warren’: Have you started studying for chem? 
+
+‘Ivory’: The day has come. We’re so cooked, but at least our brain rot’s gonna heal. (it’s gonna get eaten)
+
+‘Skye’: You won’t believe this. Some mental weirdo just BIT SOMEONE. Blood was pouring out of them like crazy. Everything’s escalating here. This is straight out of a horror movie. I’m scared out of my mind.
+"
+autowrap_mode = 2
+
+[node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=1838713869]
+offset_left = 183.0
+offset_top = 517.0
+offset_right = 216.0
+offset_bottom = 549.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i6eub")
