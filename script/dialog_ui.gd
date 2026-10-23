@@ -1,5 +1,5 @@
 extends Control
-
+#control dialogue box, when it appears, when it disappears
 @onready var example_balloon: DialogueManagerExampleBalloon = $ExampleBalloon
 @onready var balloon: Control = $ExampleBalloon/Balloon
 @onready var responses_menu: DialogueResponsesMenu = $ExampleBalloon/Balloon/ResponsesMenu
@@ -44,16 +44,16 @@ func show_dialogue_title(title: String) -> void:
 	if res and dm: #if both exist
 		dm.show_dialogue_balloon(res, title) #show wanted lines with title
 		
-func _on_quest_state_changed(new_state: int) -> void:
+func _on_quest_state_changed(new_state: int) -> void: #continuing dialogue after completing "quest"
 	if new_state == 1:
 		show_dialogue_title("continue")
 	if new_state == 2:
 		show_dialogue_title("continue2")
 	if new_state == 3:
 		show_dialogue_title("continue3")
-	if new_state == 3.1:
+	if new_state == 31:
 		show_dialogue_title("continue3a")
-	if new_state == 4:
+	if new_state == 4: #for this state to be reached, 31 or 32 have to be reached first, see questmanager script line 31
 		show_dialogue_title("continue4")
 	
 		

@@ -159,8 +159,8 @@ frame = 1
 frame_progress = 0.33885387
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1697392224]
-limit_left = 0
-limit_top = 0
+limit_left = -1180
+limit_top = -1250
 limit_right = 2048
 limit_bottom = 1152
 

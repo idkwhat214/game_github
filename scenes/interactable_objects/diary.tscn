@@ -50,6 +50,7 @@ position = Vector2(0, 19.5)
 shape = SubResource("RectangleShape2D_begyx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1254867699]
+visible = false
 offset = Vector2(120, 75)
 transform = Transform2D(1, 0, 0, 1, 120, 75)
 

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://crp1viwdcjlv7"]
+
+[ext_resource type="Script" uid="uid://dng8ps61coxkk" path="res://script/save&load/GameManager.gd" id="1_dppwp"]
+[ext_resource type="PackedScene" uid="uid://rarhd7mr5d5k" path="res://scenes/saving/autosave_animation.tscn" id="2_iblie"]
+
+[node name="GameManager" type="Node" unique_id=958225489]
+script = ExtResource("1_dppwp")
+autosave_scene = ExtResource("2_iblie")

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://8g2v1u6mfxxf"]
+
+[ext_resource type="Texture2D" uid="uid://cft7sx431asmd" path="res://assets/images/tileset/night_table.png" id="1_5gmhj"]
+[ext_resource type="Script" uid="uid://yxnwxfwhajo8" path="res://script/for_interactions/drawer.gd" id="1_q0jyp"]
+[ext_resource type="PackedScene" uid="uid://bxyo8im8h1i38" path="res://scenes/components/interactable_label.tscn" id="2_cis58"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="4_31xpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg6ry"]
+size = Vector2(13, 28)
+
+[node name="drawer" type="Area2D" unique_id=1726235137]
+script = ExtResource("1_q0jyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=23586483]
+texture = ExtResource("1_5gmhj")
+
+[node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("2_cis58")]
+offset_left = -14.0
+offset_top = 7.0
+offset_right = 166.0
+offset_bottom = 50.0
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("4_31xpm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=73447331]
+position = Vector2(-0.5, 9)
+shape = SubResource("RectangleShape2D_rg6ry")

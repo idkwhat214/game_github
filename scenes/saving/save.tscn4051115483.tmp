@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://du1gpadkmv5mw"]
+
+[ext_resource type="Texture2D" uid="uid://bpugljp1t35aa" path="res://assets/images/tileset/autoload.png" id="1_4pnnm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15k6m"]
+atlas = ExtResource("1_4pnnm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gwgp"]
+atlas = ExtResource("1_4pnnm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ischm"]
+atlas = ExtResource("1_4pnnm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogavu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15k6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gwgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ischm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="save" type="Node2D" unique_id=179297299]
+
+[node name="autosave_animation" type="AnimatedSprite2D" parent="." unique_id=56634815]
+position = Vector2(1200, 325)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ogavu")
+frame = 2
+frame_progress = 1.0

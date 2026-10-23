@@ -20,14 +20,14 @@ func neighbor_int1():
 		
 func neighbor_int2(): 
 	if quest_state == 3:
-		quest_state = 3-1 #sink interaction done
+		quest_state = 31 #sink interaction done
 		quest_state_changed.emit(quest_state)
 
-func neighbor_branch_ready(): #check line 91 in dialogue file
+func neighbor_branch_ready(): #check line 94 in dialogue file
 	if quest_state == 3:
-		quest_state = 3-2
+		quest_state = 32
 
 func news_int(): 
-	if quest_state == 3-1 or quest_state == 3-2: #only if you've done the sink interaction from option 1 line 54 or chosen option 2 line 90
-		quest_state = 4
+	if quest_state == 31 or quest_state == 32: #only if you've done the sink interaction from option 1 line 54 or chosen option 2 line 930
+		quest_state = 4 #if you interact with the tv before that, dialogue will not pop up, see dialog ui line 56
 		quest_state_changed.emit(quest_state)

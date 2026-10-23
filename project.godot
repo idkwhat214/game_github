@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 DialogueManager="*uid://c3rodes2l3gxb"
 QuestManager="*uid://c44i7uw7syh7m"
 GameState="*uid://suego38pb1fk"
-GameManager="*uid://djcgdgg3gleww"
+GameManager="*uid://crp1viwdcjlv7"
 
 [display]
 

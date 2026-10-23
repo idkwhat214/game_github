@@ -1,5 +1,6 @@
 extends Node
-
+#variables and commands/functions that are used in dialogue manager
+#because of line 1 in DialogueManager, the values of the variables automatically change
 var math_skill := 0
 var silence := 0
 var useless_phone := 0
@@ -20,7 +21,8 @@ func teleport_neighbor(position: Vector2) -> void:
 		var neighbor = get_tree().get_first_node_in_group("npcs") #find the first node in the "npcs" group
 		neighbor.global_position = position
 		
-func die():
+		
+func die():  #doesn't work yet I think
 	var player = get_tree().get_first_node_in_group("player")
 	if player: 
 		var animated_sprite = player.get_node("AnimatedSprite2D")
