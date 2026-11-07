@@ -26,8 +26,7 @@ func update_data():
 }
 
 func save() -> bool:
-	if  not update_data():
-		return false
+	update_data()
 		
 	var file = FileAccess.open(SAVE_LOCATION, FileAccess.WRITE)
 	if not file:

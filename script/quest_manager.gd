@@ -3,6 +3,8 @@ class_name Quest
 
 signal quest_state_changed(new_state: int)
 var quest_state := 0
+signal locker_unlocked(new_state: int)
+var locker :=0
 	
 func plant_interaction() -> void: #check plant script line 19
 	quest_state = 1
@@ -31,3 +33,8 @@ func news_int():
 	if quest_state == 31 or quest_state == 32: #only if you've done the sink interaction from option 1 line 54 or chosen option 2 line 930
 		quest_state = 4 #if you interact with the tv before that, dialogue will not pop up, see dialog ui line 56
 		quest_state_changed.emit(quest_state)
+		
+func keypad():
+	locker += 1
+	locker_unlocked.emit(locker)
+	

@@ -37,10 +37,11 @@ position = Vector2(-2, -8)
 texture = ExtResource("1_h1gap")
 
 [node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("3_upe1a")]
-offset_left = -20.0
-offset_top = -25.0
-offset_right = 160.0
-offset_bottom = 18.0
+offset_left = -26.0
+offset_top = -26.000002
+offset_right = 154.0
+offset_bottom = 16.999998
+scale = Vector2(0.3, 0.3)
 metadata/_edit_use_anchors_ = true
 
 [node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("4_g0kq7")]

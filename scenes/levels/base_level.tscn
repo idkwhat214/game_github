@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://dais33ogvx133" path="res://assets/images/tileset/wedding_photo.png" id="38_ngh0y"]
 [ext_resource type="Texture2D" uid="uid://bgwk8rxdkps8b" path="res://assets/images/tileset/locker.png" id="39_4vjsr"]
 [ext_resource type="PackedScene" uid="uid://8g2v1u6mfxxf" path="res://assets/images/objects/drawer.tscn" id="41_y1oxd"]
+[ext_resource type="PackedScene" uid="uid://ceis4bvng7r8s" path="res://scenes/interactable_objects/locker.tscn" id="42_y1oxd"]
 
 [sub_resource type="GDScript" id="GDScript_u2nyb"]
 script/source = "extends Node2D
@@ -549,6 +550,10 @@ scenes/1/scene = ExtResource("33_jwg47")
 resource_name = "drawer"
 scenes/1/scene = ExtResource("41_y1oxd")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_esioh"]
+resource_name = "locker"
+scenes/1/scene = ExtResource("42_y1oxd")
+
 [sub_resource type="TileSet" id="TileSet_u2nyb"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0hr52")
@@ -558,6 +563,7 @@ sources/3 = SubResource("TileSetScenesCollectionSource_wqfp5")
 sources/4 = SubResource("TileSetScenesCollectionSource_jwg47")
 sources/5 = SubResource("TileSetScenesCollectionSource_ngh0y")
 sources/6 = SubResource("TileSetScenesCollectionSource_1wyte")
+sources/9 = SubResource("TileSetScenesCollectionSource_esioh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkgjl"]
 texture = ExtResource("21_nq73e")
@@ -694,7 +700,7 @@ tile_set = SubResource("TileSet_j8xgc")
 
 [node name="TileMapLayer_stuff" type="TileMapLayer" parent="." unique_id=1983657600]
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAASAAsAAQAAAAAAAAASAAwAAQAAAAEAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAEAAAAXAAIAAgAAAAAAAQARAAIAAwAAAAAAAQAQAAsABAAAAAAAAQATAAwABQAAAAAAAQDv//b/BgAAAAAAAQDv//r/AQAAAAAAAADv//v/AQAAAAEAAAD2//7/AQAAAAAAAAD2////AQAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAASAAsAAQAAAAAAAAASAAwAAQAAAAEAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAEAAAAXAAIAAgAAAAAAAQARAAIAAwAAAAAAAQAQAAsABAAAAAAAAQATAAwABQAAAAAAAQDv//b/BgAAAAAAAQDv//r/AQAAAAAAAADv//v/AQAAAAEAAAD2//7/AQAAAAAAAAD2////AQAAAAEAAAAHAAwACQAAAAAAAQA=")
 tile_set = SubResource("TileSet_u2nyb")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1311117406]

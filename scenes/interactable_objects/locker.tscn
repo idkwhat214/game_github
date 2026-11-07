@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ceis4bvng7r8s"]
+
+[ext_resource type="Script" uid="uid://46csix7plcql" path="res://script/for_interactions/locker.gd" id="1_o5g8e"]
+[ext_resource type="PackedScene" uid="uid://dlrwee8e047s4" path="res://scenes/interactable_objects/keypad.tscn" id="2_6hbvm"]
+[ext_resource type="Texture2D" uid="uid://bgwk8rxdkps8b" path="res://assets/images/tileset/locker.png" id="2_dpgt5"]
+[ext_resource type="PackedScene" uid="uid://bxyo8im8h1i38" path="res://scenes/components/interactable_label.tscn" id="2_nb1nq"]
+[ext_resource type="PackedScene" uid="uid://ctflrfll8jt5l" path="res://scenes/components/Interactable_Component.tscn" id="3_dpgt5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8664"]
+size = Vector2(51.666664, 70)
+
+[node name="locker" type="Area2D" unique_id=1852752549]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_o5g8e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1796707286]
+texture = ExtResource("2_dpgt5")
+
+[node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("2_nb1nq")]
+offset_left = -20.0
+offset_top = -18.333336
+offset_right = 87.0
+offset_bottom = 1.6666641
+scale = Vector2(0.4, 0.4)
+
+[node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("3_dpgt5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=822268185]
+position = Vector2(5.8333335, 18.333334)
+shape = SubResource("RectangleShape2D_y8664")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2013949084]
+
+[node name="keypad" parent="CanvasLayer" unique_id=672007489 instance=ExtResource("2_6hbvm")]

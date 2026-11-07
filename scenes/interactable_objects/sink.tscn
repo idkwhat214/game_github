@@ -57,7 +57,7 @@ animations = [{
 size = Vector2(16, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_soybt"]
-size = Vector2(16, 56)
+size = Vector2(16, 22)
 
 [node name="sink" type="Area2D" unique_id=1798247661]
 script = ExtResource("1_jdqhh")
@@ -82,5 +82,5 @@ metadata/_edit_use_anchors_ = true
 [node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("4_7pvf2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1882742036]
-position = Vector2(0, 18)
+position = Vector2(0, 35)
 shape = SubResource("RectangleShape2D_soybt")

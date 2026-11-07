@@ -62,9 +62,11 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_ngdqb")
 
 [node name="InteractableLabel" parent="." unique_id=1795672340 instance=ExtResource("3_o6mje")]
+offset_left = -16.0
 offset_top = 0.0
-offset_right = 94.0
+offset_right = 91.0
 offset_bottom = 24.0
+scale = Vector2(0.3, 0.3)
 
 [node name="InteractableComponent" parent="." unique_id=2120483105 instance=ExtResource("4_5mb1f")]
 
