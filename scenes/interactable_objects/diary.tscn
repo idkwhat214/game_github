@@ -51,14 +51,13 @@ position = Vector2(0, 19.5)
 shape = SubResource("RectangleShape2D_begyx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1254867699]
-visible = false
 offset = Vector2(120, 75)
 transform = Transform2D(1, 0, 0, 1, 120, 75)
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=189076865]
 anchors_preset = -1
 anchor_right = 0.68671876
-anchor_bottom = 0.59444445
+anchor_bottom = 0.64444447
 offset_right = 165.0
 offset_bottom = 105.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0gvqu")
@@ -79,8 +78,8 @@ text = "03.04.28
 Dear Diary, I had an economics test today. Didn’t go well. At some point, I just stared out of the window. I envy the birds. They get to fly wherever they want to while I’m stuck here. 
 You know what? Enough complaining. There’s so much more than grades out there. There are worse problems to deal with.
 
-21.07.28
-I went for a run to clear my head. I love running. Mom made me waffles topped with strawberries when I got back.
+22.05.28
+We got a black cat from the adoption center!!! Her name is Luna and she’s adorable. She’s got a scar across her eye just like dad. I’ll make sure no one harms her ever again.  
 
 15.08.28
 I heard dad talking to mom earlier, saying some number: 232548

@@ -2,7 +2,6 @@ extends Node
 
 const SAVE_LOCATION = "user://saved_game.json"
 
-@export var autosave_scene : PackedScene #never mind, not used
 var game_data: Dictionary
 
 func update_data(): 

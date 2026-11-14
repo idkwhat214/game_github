@@ -25,7 +25,7 @@ func _ready() -> void: #the function Godot uses when node enters scene tree, ini
 		
 	res = load(DIALOGUE) #load the file with dialogue
 	if res: #if loaded
-		dm.show_dialogue_balloon(res) #show balloon with dialogue lines 3&4
+		dm.show_dialogue_balloon(res) #show balloon with dialogue lines 6&7
 	
 func _on_response_selected(response: DialogueResponse) -> void: #when a response is selected
 	pass #placeholder, does nothing for now
