@@ -1,36 +1,54 @@
 extends Control
 
 @onready var color_rect: ColorRect = $ColorRect
-@onready var key_label: Label = $ColorRect/pressbutton
 @onready var timer: Timer = $Timer
 @onready var time_label: Label = $time_label
 @onready var success_label: Label = $success_label
+
+@export var duration: float = 5.0 #time limit in seconds
 var required_presses: int = 10
 var current_presses: int = 0
-
-signal finished (success: bool)
+var active: bool = false #-----copilot suggestion
 
 func _ready() -> void:
-	get_tree().paused = true #
 	success_label.hide()
+	process_mode = Node.PROCESS_MODE_ALWAYS #-----copilot suggestion
+	timer.process_mode = Node.PROCESS_MODE_ALWAYS #-----copilot suggestion
+	timer.wait_time = duration #.wait_time means in how many seconds the timer will stop
+	timer.one_shot = true #.one_shot means that the timer will stop after reaching the end instead of restarting
+	current_presses = 0
+	timer.start()
+	get_tree().paused = true #pause the game until player finishes this qte
+	active = true #-----copilot suggestion
+	time_label.text = "%.2f" % duration #-----copilot suggestion
+	
+func _input(_event: InputEvent) -> void:
+	if active and Input.is_action_just_pressed("interact"): 
+		current_presses += 1
+		if timer.time_left > 0.0 and current_presses >= required_presses:
+			_success()
+			
+func _update_time_label() -> void:
+	var remaining_time = snapped(timer.time_left, 0.01) #round the time_left to two decimals 3.1415 -> 3.14
+	time_label.text = "%.2f" % remaining_time #show the remaining time
 
-func _process(delta: float) -> void:
-	var remaining_time = snapped(timer.time_left, 0.01) #from the time_left, 0.01 keeps getting subtracted 
-	time_label.text = str(remaining_time)
-
-#func _input(event: InputEvent) -> void:
-	#if Input.is_action_just_pressed("interact"):
+func _process(_delta: float) -> void:
+	if active: #-----copilot suggestion
+		_update_time_label()
 
 func _on_timer_timeout() -> void:
-	var success = timer.time_left #if there's time left, congrats
-	_update_success_level(success) #success text will appear
-	get_tree().paused = false # 
-	finished.emit(success)
+	if active and current_presses < required_presses:
+		_fail()
+
+func _success() -> void:
+	active = false #-----copilot suggestion
 	timer.stop()
-	
-func _update_success_level(success: bool) -> void:
 	success_label.show()
-	if success:
-		success_label.text = "SUCCESS"
-	else:
-		success_label.text = "FAIL"
+	success_label.text = "SUCCESS"
+	get_tree().paused = false #Spiel fortsetzen
+	
+func _fail() -> void:
+	active = false #-----copilot suggestion
+	success_label.show()
+	success_label.text = "FAIL"
+	get_tree().paused = false 
