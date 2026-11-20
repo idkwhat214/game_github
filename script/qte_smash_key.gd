@@ -14,6 +14,10 @@ func _ready() -> void:
 	success_label.hide()
 	process_mode = Node.PROCESS_MODE_ALWAYS #-----copilot suggestion
 	timer.process_mode = Node.PROCESS_MODE_ALWAYS #-----copilot suggestion
+	hide()
+	
+func start_qte() -> void:
+	show()
 	timer.wait_time = duration #.wait_time means in how many seconds the timer will stop
 	timer.one_shot = true #.one_shot means that the timer will stop after reaching the end instead of restarting
 	current_presses = 0
@@ -45,10 +49,15 @@ func _success() -> void:
 	timer.stop()
 	success_label.show()
 	success_label.text = "SUCCESS"
-	get_tree().paused = false #Spiel fortsetzen
+	await get_tree().create_timer(2.5).timeout #wait 2.5 seconds
+	get_tree().paused = false #continue game
+	QuestManager.qte_done()
+	hide()
 	
 func _fail() -> void:
 	active = false #-----copilot suggestion
 	success_label.show()
 	success_label.text = "FAIL"
+	await get_tree().create_timer(2.5).timeout 
 	get_tree().paused = false 
+	hide()

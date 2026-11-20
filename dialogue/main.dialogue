@@ -127,16 +127,24 @@ Unknown: None of this feels right. He seems stubborn.
 
 Unknown: When you take out your phone, your eyes land on the messages. You grab the TV remote from the coffee table to turn on the TV and watch the latest news.
 => END
-
-~ continue4
+~ debug_line_c4
+#~ continue4
 A news reporter [breaking the silence as you increase the volume]: “Attention, all citizens! This is an emergency broadcast. A highly infectious disease is spreading rapidly all over the nation. Avoid coming in contact with any infected. According to scientists, typical symptoms-”
 Her voice gets cut off as you watch the camera get splattered with blood and hear violent screams in the background. The image breaks, displaying various colours and a “no signal” text. Low buzzing sound fills the room as you stare at the glitching TV, frozen in shock. You don’t get time to ponder the situation as you hear a faint growl. Turning to look for the source of the noise, your gaze falls upon Mr. Jenkins, staring right back at you.
 - [Lock him up.]
 	Unknown: You drag his body across the floor to the small laundry room and lock him up.
 	set pacifist += 1
-- [Kill him.]
-- [Push him off the balcony.]
 
+- [Kill him.]
+	(In a second, a key and a timer will be shown. Press it quickly as many times as you can.)
+	do QuestManager.qte_activation()
+	if locker == 0:
+		"Kill him with knife"
+	elif locker == 1:
+		"kill him with gun"
+- [Push him off the balcony.]
+	(In a second, a key and a timer will be shown. Press it quickly as many times as you can.)
+	do QuestManager.qte_activation()
 
 => END
 
