@@ -7,9 +7,11 @@ var last_direction: Vector2 = Vector2.UP #for idle animation
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D #script has been turned into a variable
 
 var is_dialogue_active: bool = true #for blocking player movement in dialog_ui script
+var is_dead: bool = false #normally, player's alive
 
 func _physics_process(_delta: float) -> void: #main function
-	if is_dialogue_active:
+	if is_dead or is_dialogue_active:
+		velocity = Vector2.ZERO
 		return
 	process_movement()
 	process_animation()
@@ -44,3 +46,8 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 func _ready() -> void:
 	add_to_group("player")
 	
+func die():
+	is_dead = true
+	is_dialogue_active = true
+	velocity = Vector2.ZERO
+	animated_sprite_2d.play("dead")

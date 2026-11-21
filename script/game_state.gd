@@ -21,10 +21,18 @@ func teleport_neighbor(position: Vector2) -> void:
 		var neighbor = get_tree().get_first_node_in_group("npcs") #find the first node in the "npcs" group
 		neighbor.global_position = position
 		
+func teleport_cat(position: Vector2) -> void:
+	if not get_tree().get_first_node_in_group("pets"):
+		var cat_scene = preload("res://scenes/characters/cat.tscn")
+		var cat = cat_scene.instantiate()
+		get_tree().root.add_child(cat)
+		cat.global_position = position
+	else:
+		var cat = get_tree().get_first_node_in_group("pets") 
+		cat.global_position = position
 		
-func die():  #doesn't work yet I think
+func die():
 	var player = get_tree().get_first_node_in_group("player")
 	if player: 
-		var animated_sprite = player.get_node("AnimatedSprite2D")
-		if animated_sprite: 
-			animated_sprite.play("dead")
+		player.die()
+		

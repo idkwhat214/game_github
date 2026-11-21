@@ -3,6 +3,7 @@ using QuestManager
 
 ~ start 
 do GameManager.load()
+do GameState.teleport_cat(Vector2(1570, 180))
 Unknown: The chirping of birds and occasional honking sounds caused by the traffic outside can be heard through your open window. Golden rays of sunshine illuminate your room. You lazily lie on your bed, feeling the warmth of the sun and soft breezes on your skin on your skin. Music plays through your headphones as you gaze at the ceiling.
 Unknown: Sunday is your reset day of the week. Perhaps you should really get up instead of procrastinating. With a sigh of defeat, you sit up on your bed and glance at the mess on your desk. Your dear homework is patiently waiting for you. Next to it lies the plant you got for your last birthday with its first wilting leaves. You should probably water it.
 do GameManager.save()
@@ -127,8 +128,8 @@ Unknown: None of this feels right. He seems stubborn.
 
 Unknown: When you take out your phone, your eyes land on the messages. You grab the TV remote from the coffee table to turn on the TV and watch the latest news.
 => END
-~ debug_line_c4
-#~ continue4
+#~ debug_line_c4
+~ continue4
 A news reporter [breaking the silence as you increase the volume]: “Attention, all citizens! This is an emergency broadcast. A highly infectious disease is spreading rapidly all over the nation. Avoid coming in contact with any infected. According to scientists, typical symptoms-”
 Her voice gets cut off as you watch the camera get splattered with blood and hear violent screams in the background. The image breaks, displaying various colours and a “no signal” text. Low buzzing sound fills the room as you stare at the glitching TV, frozen in shock. You don’t get time to ponder the situation as you hear a faint growl. Turning to look for the source of the noise, your gaze falls upon Mr. Jenkins, staring right back at you.
 - [Lock him up.]
@@ -138,14 +139,19 @@ Her voice gets cut off as you watch the camera get splattered with blood and hea
 - [Kill him.]
 	(In a second, a key and a timer will be shown. Press it quickly as many times as you can.)
 	do QuestManager.qte_activation()
-	if locker == 0:
-		"Kill him with knife"
-	elif locker == 1:
-		"kill him with gun"
+	if qte_success == 0:
+		do GameState.die()
+	elif qte_success == 1:
+		if locker == 0:
+			"Kill him with knife"
+		elif locker == 1:
+			"kill him with gun"
 - [Push him off the balcony.]
 	(In a second, a key and a timer will be shown. Press it quickly as many times as you can.)
 	do QuestManager.qte_activation()
-
+	if qte_success == 0:
+		do GameState.die()
+	#elif qte_success == 1:
 => END
 
 #do GameState.teleport_player(Vector2(-100,600))

@@ -60,4 +60,5 @@ func _fail() -> void:
 	success_label.text = "FAIL"
 	await get_tree().create_timer(2.5).timeout 
 	get_tree().paused = false 
+	QuestManager.qte_failed() #-----copilot suggestion
 	hide()

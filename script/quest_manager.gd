@@ -9,6 +9,7 @@ signal qte_state_changed(new_state: int)
 var qte_state := 0
 signal qte_success_state(new_state: int)
 var qte_success := 0
+signal qte_finished(result: int) #-----copilot suggestion
 	
 func plant_interaction() -> void: #check plant script line 19
 	quest_state = 1
@@ -44,11 +45,22 @@ func keypad():
 	locker_unlocked.emit(locker)
 	
 func qte_activation():
+	qte_success = 0
 	qte_state = 1
 	qte_state_changed.emit(qte_state)
-	
+
+	var result: int = await qte_finished #-----copilot suggestion
+	qte_success = result #-----copilot suggestion
+	qte_state = 0 #-----copilot suggestion
+	qte_state_changed.emit(qte_state) #-----copilot suggestion
+	return result #-----copilot suggestion
+
 func qte_done():
 	qte_success = 1
 	qte_success_state.emit(qte_success)
-	
-	
+	qte_finished.emit(qte_success) #-----copilot suggestion
+
+func qte_failed(): #-----copilot suggestion
+	qte_success = 0
+	qte_success_state.emit(qte_success)
+	qte_finished.emit(qte_success) 

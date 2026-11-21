@@ -3,16 +3,12 @@
 [ext_resource type="Script" uid="uid://bm8xrffwwh1kf" path="res://script/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cxgrdk2wdr11" path="res://scenes/levels/base_level.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cfqr65obfbwh7" path="res://scenes/dialog/dialog_ui.tscn" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://c43ef04ltje57" path="res://scenes/levels/level_2.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://blgp1jtia16wh" path="res://scenes/qte_smash_key.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=2119911293]
 script = ExtResource("1_sugp2")
 
 [node name="LevelRoot" parent="." unique_id=1840405269 instance=ExtResource("2_0wfyh")]
-
-[node name="level_2" parent="." unique_id=1736465323 instance=ExtResource("3_tbgi4")]
-visible = false
 
 [node name="DialogUI" parent="." unique_id=1376756981 instance=ExtResource("2_sugp2")]
 
@@ -22,11 +18,11 @@ layer = 100
 [node name="QTE_smash_key" parent="QTECanvasLayer" unique_id=1214081592 instance=ExtResource("4_jyhfs")]
 
 [node name="light" type="CanvasLayer" parent="." unique_id=2129030631]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="light" unique_id=1844007520]
-visible = false
 offset_left = -2002.0
 offset_top = -1281.0
-offset_right = 2129.0
-offset_bottom = 1169.0
+offset_right = 4649.0
+offset_bottom = 1760.0
 color = Color(0, 0, 0, 0.5529412)
