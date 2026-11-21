@@ -717,13 +717,3 @@ tile_set = SubResource("TileSet_575cj")
 
 [node name="player" parent="." unique_id=747796867 instance=ExtResource("2_uk53i")]
 position = Vector2(1572, 270)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1924033863]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1892207892]
-offset_left = -2002.0
-offset_top = -1281.0
-offset_right = 2129.0
-offset_bottom = 1169.0
-color = Color(0, 0, 0, 0.5529412)
